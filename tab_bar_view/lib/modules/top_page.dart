@@ -41,6 +41,7 @@ class _TopScreenState extends State<TopScreen> {
                 ),
               ),
               body: new TabBarView(
+                physics: NeverScrollableScrollPhysics(),// todo: disable swip
                 children: <Widget>[HomeTap(), Business(), School(),Profile()],
               ),
             )

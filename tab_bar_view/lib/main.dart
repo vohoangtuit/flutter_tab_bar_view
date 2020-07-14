@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tab view bar',
-      home: MyHomePage(title: 'Tab Layout'),
+      home: MyHomePage(title: 'TabBar View'),
       debugShowCheckedModeBanner: false,
     );
   }
