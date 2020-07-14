@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:tab_bar_view/modules/tab_keep_data/business_tap_keep_change.dart';
+import 'package:tab_bar_view/modules/tab_keep_data/home_tap_keep_change.dart';
+import 'package:tab_bar_view/modules/tab_keep_data/school_tap_keep_change.dart';
 import 'package:tab_bar_view/modules/tabs/business_tap.dart';
 import 'package:tab_bar_view/modules/tabs/home_tap.dart';
 import 'package:tab_bar_view/modules/tabs/profile_tab.dart';
 import 'package:tab_bar_view/modules/tabs/school_tap.dart';
 
-class BottomScreen extends StatefulWidget {
+class BottomKeepChangeScreen extends StatefulWidget {
   @override
-  _BottomScreenState createState() => _BottomScreenState();
+  _BottomKeepChangeScreenState createState() => _BottomKeepChangeScreenState();
 }
 
-class _BottomScreenState extends State<BottomScreen>
+class _BottomKeepChangeScreenState extends State<BottomKeepChangeScreen>
     with SingleTickerProviderStateMixin  {
   TabController controller;
 
@@ -37,7 +40,7 @@ class _BottomScreenState extends State<BottomScreen>
       ),
       body: TabBarView(
         // Add tabs as widgets
-        children: <Widget>[HomeTap(), Business(), School(), Profile()],
+        children: <Widget>[HomeTapKeepChange(), BusinessKeepChange(), SchoolKeepChange(), Profile()],
         // set the controller
         controller: controller,
       ),

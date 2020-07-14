@@ -1,53 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:tab_bar_view/modules/tab_keep_data/business_tap_keep_change.dart';
+import 'package:tab_bar_view/modules/tab_keep_data/home_tap_keep_change.dart';
+import 'package:tab_bar_view/modules/tab_keep_data/school_tap_keep_change.dart';
 import 'package:tab_bar_view/modules/tabs/business_tap.dart';
 import 'package:tab_bar_view/modules/tabs/home_tap.dart';
 import 'package:tab_bar_view/modules/tabs/profile_tab.dart';
 import 'package:tab_bar_view/modules/tabs/school_tap.dart';
 
-class BottomScreen extends StatefulWidget {
+class TopKeepChangeScreen extends StatefulWidget {
   @override
-  _BottomScreenState createState() => _BottomScreenState();
+  _TopKeepChangeScreenState createState() => _TopKeepChangeScreenState();
 }
 
-class _BottomScreenState extends State<BottomScreen>
-    with SingleTickerProviderStateMixin  {
-  TabController controller;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // Initialize the Tab Controller
-    controller = TabController(length: 4, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    // Dispose of the Tab Controller
-    controller.dispose();
-    super.dispose();
-  }
-
+class _TopKeepChangeScreenState extends State<TopKeepChangeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Tab View On Bottom'),
-        centerTitle: false,
-      ),
-      body: TabBarView(
-        // Add tabs as widgets
-        children: <Widget>[HomeTap(), Business(), School(), Profile()],
-        // set the controller
-        controller: controller,
-      ),
-      bottomNavigationBar: Material(
-        // set the color of the bottom navigation bar
-        color: Colors.blue,
-        // set the tab bar as the child of bottom navigation bar
-        child: TabBar(
-          tabs:listTab(),
-          controller: controller,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'TabBar Demo keep change',
+      home: new Scaffold(
+        body: DefaultTabController(
+            length: listTab().length,
+            child: Scaffold(
+              appBar:  PreferredSize(
+                preferredSize: Size.fromHeight(kToolbarHeight),
+                child: Container(
+                  color: Colors.lightBlue,
+                  child: new SafeArea(
+                    child: Column(
+                      children: <Widget>[
+                        new Expanded(child: new Container()),
+                        new TabBar(
+                          tabs: listTab(),
+                          indicatorColor: Colors.redAccent,
+                          indicatorWeight: 3,
+                          //indicatorSize: TabBarIndicatorSize.label,
+                          labelColor: Colors.black,
+                          unselectedLabelColor: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              body: new TabBarView(
+                children: <Widget>[HomeTapKeepChange(), BusinessKeepChange(), SchoolKeepChange(),Profile()],
+              ),
+            )
         ),
       ),
     );
@@ -100,7 +99,7 @@ class _BottomScreenState extends State<BottomScreen>
                         color: Colors.red,
 
                       ),
-                      child: Text('6', maxLines: 2, style: TextStyle(color: Colors.white, )),
+                      child: Text('9', maxLines: 2, style: TextStyle(color: Colors.white, )),
                     )
 
                   ]
@@ -109,12 +108,8 @@ class _BottomScreenState extends State<BottomScreen>
             ],
           )
       ),
-
-      // todo: default
-      //  Tab(icon: Icon(Icons.home),text: 'Home',),
-//                Tab(icon: Icon(Icons.business),text: 'Business', ),
-//                Tab( icon: Icon(Icons.school),text: 'School',),
-//                Tab(icon: Icon(Icons.person),text: 'Profile',),
     ];
   }
+
 }
+

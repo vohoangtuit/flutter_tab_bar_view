@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../detail_page.dart';
 
-class HomeTap extends StatelessWidget {
+class SchoolKeepChange extends StatefulWidget {
+  @override
+  _SchoolKeepChangeState createState() => _SchoolKeepChangeState();
+}
+
+class _SchoolKeepChangeState extends State<SchoolKeepChange> with AutomaticKeepAliveClientMixin<SchoolKeepChange>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,9 +19,9 @@ class HomeTap extends StatelessWidget {
           itemCount: 30,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text("Home $index", style: TextStyle(color: Colors.blue, fontSize: 17)),
+              title: Text("School $index", style: TextStyle(color: Colors.blue, fontSize: 17)),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>DetailScreen("Home $index")));
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>DetailScreen("School $index")));
               },
             );
           },
@@ -24,4 +29,7 @@ class HomeTap extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

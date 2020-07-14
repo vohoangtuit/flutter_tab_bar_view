@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../detail_page.dart';
 
-class Business extends StatelessWidget {
+class BusinessKeepChange extends StatefulWidget {
+  @override
+  _BusinessKeepChangeState createState() => _BusinessKeepChangeState();
+}
+
+class _BusinessKeepChangeState extends State<BusinessKeepChange> with AutomaticKeepAliveClientMixin<BusinessKeepChange> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,4 +29,8 @@ class Business extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tab_bar_view/modules/bottom_keep_data_change.dart';
 
 import 'custom_views/widget/normal_button.dart';
 import 'modules/bottom_page.dart';
+import 'modules/top_keep_data_change_tab.dart';
 import 'modules/top_page.dart';
 
 
@@ -59,12 +61,19 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             SizedBox(height: 30,),
-//            NormalButton(
-//              title: 'Bottom Screen With Slider ',
-//              onPressed: (){
-//                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>BottomSliderScreen()));
-//              },
-//            ),
+            NormalButton(
+              title: 'Top Keep on change',
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>TopKeepChangeScreen()));
+              },
+            ),
+            SizedBox(height: 30,),
+            NormalButton(
+              title: 'Bottom Keep on change',
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>BottomKeepChangeScreen()));
+              },
+            ),
           ],
         ),
       ),

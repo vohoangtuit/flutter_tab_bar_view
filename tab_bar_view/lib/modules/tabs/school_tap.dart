@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class School extends StatelessWidget {
+import '../detail_page.dart';
+
+class School extends StatefulWidget {
+  @override
+  _SchoolState createState() => _SchoolState();
+}
+
+class _SchoolState extends State<School> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,10 +17,14 @@ class School extends StatelessWidget {
             color: Colors.green,
           ),
           itemCount: 30,
-          itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("School $index", style: TextStyle(color: Colors.blueGrey, fontSize: 17),)
-          ),
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text("School $index", style: TextStyle(color: Colors.blue, fontSize: 17)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>DetailScreen("School $index")));
+              },
+            );
+          },
         ),
       ),
     );
